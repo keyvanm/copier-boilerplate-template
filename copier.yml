@@ -1,4 +1,5 @@
 _subdirectory: template
 
 _tasks:
-- "[ -d .git ] || (git init && git add . && git commit -m 'Initial commit')"
+  - command: "[[ -d .git ]] || (git init && git add . && git commit -m 'Initial commit')"
+    when: "{{ _copier_operation == 'copy' }}"

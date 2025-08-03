@@ -1,6 +1,6 @@
 # Copier Boilerplate (template)
 
-[version::0.1.0]
+[version::0.1.1]
 
 A simple Github template to create a [Copier](https://github.com/copier-org/copier) template with the necessary boilerplate.
 
