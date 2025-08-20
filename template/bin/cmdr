@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+update() {
+  copier update --trust "$@"
+}
+
+help () {
+  echo "Usage: $0 [command] [...args]"
+  echo "Commands:"
+  echo "  update [...args]                   - Update repo from template."
+  echo "  help                               - Shows this help message."
+}
+
+# The main function to handle command dispatch.
+main() {
+  # Check if a command was provided.
+  if [ -z "$1" ]; then
+    help;
+    exit 1;
+  fi
+
+  local command="$1"
+  shift # Remove the command so remaining arguments are passed to the function.
+
+  case "$command" in
+    update | u)
+      update "$@"
+      ;;
+    -h | --help | help)
+      help;
+      ;;
+    *)
+      echo "Error: Unknown command '$command'" >&2
+      echo "Use '$0 --help' for more information."
+      exit 1
+      ;;
+  esac
+}
+
+main "$@"
